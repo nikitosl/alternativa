@@ -51,22 +51,11 @@ a.button1:focus{
 
 a.button2{
     color:#fff;
+    disabled:none;
     font-weight:333px;
     text-decoration:none;
     user-select:none;
-    background:#099;
+    background:#077;
     padding: 5px;
     border: #FFF 1px;
-}
-
-a.button2:hover{
-    background:#0CC;
-}
-
-a.button2:active{
-    background:#077;
-}
-
-a.button2:focus{
-    background:#077;
 }
