@@ -67,17 +67,18 @@ function node_painting(mas, i,k, col) {
 }
 
 
-function matrix_painting(matrix,size, k)
+function matrix_painting(matrix,size, color)
 {
     jc.start('tab');
     jc.clear('tab');
     var i, j, x=0,y=0;
     for (i = 0; i < size; i++) {
         x = 0;
-        for (j = 0; j < size; j++) {
-            //jc.text(matrix[k], x, y, '#066');
-   //         if (matrix[i][0] == 1) jc.text('4len', x, y, '#A00');
-   //         else jc.text('4len', x, y, '#066');
+        for (j = 1; j < size; j++) {
+            //jc.text(matrix[i][j], x, y, color);
+            if (matrix[0][j] == 1) jc.text(matrix[i][j], x, y, '#AA0');
+            else if (matrix[i][0] == 1) jc.text(matrix[i][j], x, y, '#A00');
+            else jc.text(matrix[i][j], x, y, '#066');
             x += 30;
         }
         y += 30;
