@@ -1,7 +1,5 @@
 
 
-
-
 function graf_painting(mas, size, color) {
     for (var i = 0; i < size; i++) {
         if (mas[i].vis == true)
@@ -71,13 +69,20 @@ function matrix_painting(matrix,size, color)
 {
     jc.start('tab');
     jc.clear('tab');
-    var i, j, x=0,y=0;
-    for (i = 0; i < size; i++) {
+    var i, j, x = 30, y = 10;
+    for (i = 1; i < size; i++) {
+        jc.text(i+':', x, y, '#066');
+        x += 30;
+    }
+    y = 40;
+    for (i = 1; i < size; i++) {
         x = 0;
+        jc.text(i+':', x, y, '#066');
+        x = 30;
         for (j = 1; j < size; j++) {
             //jc.text(matrix[i][j], x, y, color);
-            if (matrix[0][j] == 1) jc.text(matrix[i][j], x, y, '#AA0');
-            else if (matrix[i][0] == 1) jc.text(matrix[i][j], x, y, '#A00');
+            if (matrix[i][0] == 1) jc.text(0, x, y, '#A00');
+            else if (matrix[0][j] == 1) jc.text(matrix[i][j], x, y, '#AA0');
             else jc.text(matrix[i][j], x, y, '#066');
             x += 30;
         }
