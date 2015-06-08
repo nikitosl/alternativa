@@ -26,50 +26,73 @@ function NewReb(num1, x1, y1, num2, x2, y2, weighta) {
 var k = 0;
 var mas = [];
 var i;
-mas.push();
-mas[0] = NewReb(1, 30, 180, 2, 40, 0, 91, 0);
+var r;
+var p = 0, ii;
 
-mas.push();
-mas[1] = NewReb(4, 0, 50, 3, 70, 90, 90);
-mas.push();
-mas[2] = NewReb(1, 30, 180, 3, 70, 90, 50);
-mas.push();
-mas[3] = NewReb(2, 40, 0, 4, 0, 50, 100);
-mas.push();
-mas[4] = NewReb(2, 40, 0, 5, 0, 150, 20);
-mas.push();
-mas[5] = NewReb(6, 280, 100, 4, 0, 50, 70);
-mas.push();
-mas[6] = NewReb(6, 280, 100, 3, 70, 90, 15);
-mas.push();
-mas[7] = NewReb(4, 0, 50, 5, 0, 150, 90);
-mas.push();
-mas[8] = NewReb(1, 30, 180, 5, 0, 150, 50);
-mas.push();
-
-k = 9;
-size = size_of_tabl(mas, k)+1;
-
-//****************************************
-var matrix = [];
-var steck = [];
-var g = 0;
-for (i = 0; i < size-1; i++)
-    steck[i] = NewReb(0, 0, 0, 0, 0, 0, 0);
+var nodes = [];
+nodes[1] = { x: 300, y: 180};
+nodes[2] = { x: 40, y: 0 };
+nodes[3] = { x: 70, y: 220 };
+nodes[4] = { x: 0, y: 50 };
+nodes[5] = { x: 100, y: 150 };
+nodes[6] = { x: 280, y: 50 };
+size = 7;
 var tabl = [];
-//var tabl1 = [];
-var i, j;
-var min = { x: 0, y: 0 };
-var empty = [];
-var stolb = [];
-var flag = 1;
-//********** NEW Matrix *****************
+
 for (i = 0; i < size; i++) {
     var tabl1 = [];
     for (j = 0; j < size; j++)
         tabl1[j] = 0;
     tabl[i] = tabl1;
 }
+for (i = 1; i <= 6; i++)
+    for (j = 1; j < i ; j++)
+    {
+        r = Random_Generate(200);
+        if ((i == 6 && j == 3) || (i==4 && j==2))
+            tabl[i][j] = 0;
+        else if (r > 0)
+            //if (j!=3 && i!=6)
+        {
+            tabl[i][j] = r;
+        }
+        
+    }
+for (i = 1; i <= 6; i++)
+    for (j = 1; j < i ; j++)
+        if (tabl[i][j] != 0)
+        {
+            mas.push();
+            mas[k] = NewReb(i, nodes[i].x, nodes[i].y, j, nodes[j].x, nodes[j].y, tabl[i][j]);
+            k++;
+        }
+
+function Random_Generate(n)
+{
+    return Math.floor((Math.random() * Math.random() ) * n);
+}
+//****************************************
+var matrix = [];
+var steck = [];
+var user_steck = [];
+var user_g = 0;
+var g = 0;
+for (i = 0; i < k; i++)
+    steck[i] = 0;
+for (i = 0; i < k; i++)
+    user_steck[i] = 0;
+
+var v;
+
+//var tabl1 = [];
+var i, j;
+var min = { x: 0, y: 0 };
+var empty = [];
+var stolb = [];
+var flag = 1;
+
+//********** NEW Matrix *****************
+
 for (i = 0; i < size; i++)
     empty[i] = 0;
 empty[0] = 1;
@@ -81,19 +104,21 @@ for (i = 0; i < size; i++)
 
 function NEW_Matrix(mas,tabl, k)
 {
-
     for (i = 0; i < k; i++) {
             tabl[mas[i].q1.num][mas[i].q2.num] = mas[i].weight;
-            tabl[mas[i].q2.num][mas[i].q1.num] = mas[i].weight;
-        
+            tabl[mas[i].q2.num][mas[i].q1.num] = mas[i].weight;     
     }
-    for (i = 0; i < k; i++) {
-        if (mas[i].vis == false)
+    for (j = 0; j < k; j++) {
+        if (mas[j].vis == false)
         {
-            tabl[mas[i].q1.num] = empty;
-            tabl[mas[i].q2.num] = empty;
-            tabl[0][mas[i].q1.num] = 1;
-            tabl[0][mas[i].q2.num] = 1;
+            for ( i= 1; i < size; i++) {
+                tabl[mas[j].q1.num][i] = 0;
+                tabl[mas[j].q2.num][i] = 0;
+            }
+            tabl[mas[j].q1.num][0] = 1;
+            tabl[mas[j].q2.num][0] = 1;
+            tabl[0][mas[j].q1.num] = 1;
+            tabl[0][mas[j].q2.num] = 1;
         }    
     }
 }
@@ -107,6 +132,11 @@ function NEW_Matrix(mas,tabl, k)
 graf_painting(mas, k, '#066');
 NEW_Matrix(mas, tabl, k);
 matrix_painting(tabl, size, '#066');
+jc.start('quest');
+jc.text('You have to chose an edge and then put "Build". When you fineshed, puts "Control" Good luck!', 10, 10, '#099');
+//jc.text('В конце работы нажмите "Проверить". Удачи!.',10, 22, '#099');
+jc.start('quest');
+var visible = 1;
 //prim(mas, k);
 //console.log('steck:', steck);
 //console.log('g:', g);
@@ -118,9 +148,27 @@ function build() {
     //   if (count<g || stolb[0]==0) {
     //while (steck[count].vis==false) count++;  // Не проверено
 
-   // prim(mas, k);
-    if (NULL_matrix(tabl,size)) {
-       jc.clear('can');
+    // prim(mas, k);
+    visible = 1;
+    if (NULL_matrix(tabl, size)) {
+        jc.clear('quest');
+        jc.clear('can');
+        jc.start('can');
+        for (i = 0; i < k; i++)
+            
+            if (mas[i].vis == false)
+            {
+                v=1;
+                for (j = 0; j < k && v; j++)
+                    if (user_steck[j] == i)
+                        v = 0;
+                if (v)
+                {
+                    user_steck[user_g] = i;
+                    user_g++;
+                }
+                
+            }
       //  mas[steck[count]].vis = false;
        graf_painting(mas, k, '#066');
        NEW_Matrix(mas, tabl, k);
@@ -137,9 +185,10 @@ function control() {
     {
         
         prim(mas, size);
-        console.log('steck:', steck);
+        //console.log('steck:', steck);
+        correct(steck, user_steck, g, user_g, k);
     }
-    else alert("You have come undeleted elements!");
+    else alert("Building is not finished!");
 }
 /*function restart() {
 
@@ -155,12 +204,20 @@ function control() {
 }*/
 
 function prim(mas, size) {
-
+    for (i = 0; i < size; i++) {
+        var tabl1 = [];
+        for (j = 0; j < size; j++)
+            tabl1[j] = 0;
+        tabl[i] = tabl1;
+    }
     for (i = 0; i < k; i++) {
         tabl[mas[i].q1.num][mas[i].q2.num] = mas[i].weight;
         tabl[mas[i].q2.num][mas[i].q1.num] = mas[i].weight;
-
     }
+
+
+    console.log('PPRRIIMM');
+
     while (NULL_matrix(tabl, size)==1)
     {
         for (i = 0; i < size; i++) console.log(tabl[i]);
@@ -174,10 +231,18 @@ function prim(mas, size) {
         tabl[0][min.y] = 1;
         console.log(min.x, min.y, tabl[min.x][min.y]);
 
-        tabl[min.x] = empty;
-        tabl[min.y] = empty;
+        //tabl[min.x] = empty;
+        //tabl[min.y] = empty;
+        for (i = 1; i < size; i++)
+        {
+            tabl[min.x][i] = 0;
+            tabl[min.y][i] = 0;
 
-        for (i = 0; i < size; i++)
+        }
+        tabl[min.x][0] = 1;
+        tabl[min.y][0] = 1;
+
+        for (i = 0; i < k; i++)
             if ((mas[i].q1.num == min.x || mas[i].q1.num == min.y) && (mas[i].q2.num == min.x || mas[i].q2.num == min.y)) {
                 steck[g] = i;
                 //console.log('4len');
@@ -240,7 +305,24 @@ function NULL_matrix(matrix,size)
 {
     var f=0;
     for (i = 1; i < size; i++)
-            if (matrix[i][0] == 0)
-                f = 1;
+        if (matrix[i][0] == 0)
+        {
+            f = 1;
+            console.log(matrix[i][0]);
+        }
+                
     return f;
+}
+
+function correct(m1,m2,g1,g2,k)
+{
+    var c=-1;
+    for (i = 0; i < k && c==-1; i++)
+        if (m1[i] != m2[i])
+            c = i;
+
+    if (c == -1)
+        alert(('Congratulations! Your work is done!'));
+    else
+        alert(encodeURI('Ops!, you have a mistake in '+(c+1)+' edge. Try again laters'));
 }

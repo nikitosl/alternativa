@@ -91,20 +91,20 @@ function matrix_painting(matrix,size, color)
     jc.start('tab');
 }
 // JavaScript source code
-function edge_painting(mas, i,k, col) //mas - массив ребер формата: [q1{num,x,y}, -первая вершина
-    //                             q2{num,x,y}, -вторая вершина
-    //                             weight,      -вес ребра
-    //                             print];      -нарисовано ли ребро
+function edge_painting(mas, i,k, col) //mas - ГЏвЂЎГ’Г’Г‹вЂљ пЈїГ‚В·Г‚пЈї Г™Г“пЈїГЏвЂЎГљвЂЎ: [q1{num,x,y}, -Г”Г‚пЈївЂљвЂЎЛ‡ вЂљГ‚пЈїВЇГ‹ГЊвЂЎ
+    //                             q2{num,x,y}, -вЂљГљГ“пЈївЂЎЛ‡ вЂљГ‚пЈїВЇГ‹ГЊвЂЎ
+    //                             weight,      -вЂљГ‚Г’ пЈїГ‚В·пЈївЂЎ
+    //                             print];      -ГЊвЂЎпЈїГ‹Г’Г“вЂљвЂЎГЊГ“ ГЋГ‹ пЈїГ‚В·пЈїГ“
     //                                             (1/0)
 {
     if (!mas[i])
         return null;
     var x1, y1, x2, y2,f;
     var radius = 5;
-    //  var col = '#066';               //невыбраные линии
-    var col0 = 'rgba(0,6,6,0.04)';  //невыбраные прямоугольники
-    var col1 = 'rgba(0,9,9,0.2)';   //подсвеченые прямоугольники
-    var col2 = '#600';//выбраные линии
+    //  var col = '#066';               //ГЊГ‚вЂљЛљВ·пЈївЂЎГЊЛљГ‚ ГЋГ‹ГЊГ‹Г‹
+    var col0 = 'rgba(0,6,6,0.04)';  //ГЊГ‚вЂљЛљВ·пЈївЂЎГЊЛљГ‚ Г”пЈїЛ‡ГЏГ“Г›вЂћГ“ГЋВёГЊГ‹ГЌГ‹
+    var col1 = 'rgba(0,9,9,0.2)';   //Г”Г“вЂ°Г’вЂљГ‚ЛњГ‚ГЊЛљГ‚ Г”пЈїЛ‡ГЏГ“Г›вЂћГ“ГЋВёГЊГ‹ГЌГ‹
+    var col2 = '#600';//вЂљЛљВ·пЈївЂЎГЊЛљГ‚ ГЋГ‹ГЊГ‹Г‹
     var kos = [];
     var wei = [];
     var center = [];
@@ -154,19 +154,21 @@ function edge_painting(mas, i,k, col) //mas - массив ребер формата: [q1{num,x,y}
                  jc('#speshial_text' + this.name()).visible(false);
              })
             .click(function () {
-                if (mas[this.name()-1].vis == true) {
+                if (mas[this.name() - 1].vis == true && visible == 1) {
                     jc('#' + this.name() + '1').color(col2);
                     jc('#speshial_text' + this.name()).color(col2);
                     mas[this.name() - 1].vis = false;
-
-                  //  node_painting(mas, i,k, col);
+                    visible = 0;
+                    //  node_painting(mas, i,k, col);
                 }
-                else  {
+                else if (mas[this.name() - 1].vis == false && visible == 0) {
                     jc('#' + this.name() + '1').color(col);
                     jc('#speshial_text' + this.name()).color(col);
                     mas[this.name() - 1].vis = true;
-                 //   node_painting(mas, i,k, col);
-               }
+                    visible = 1;
+                    //   node_painting(mas, i,k, col);
+                }
+                else alert("First put 'Build' or chose another edge!");
             });
 
     jc.line([[x1, y1], [x2, y2]], col)
