@@ -5,12 +5,16 @@
         <link rel="shortcut icon" href="favicon.png" type = "image/png">
         <meta charset="utf-8">
     </head>
-    
+
     <body bgcolor = "EEEEEE" align = "center">
-        <table class="itable" cellspacing='9' >
+        <table class="itable" cellspacing='3' >
             <tr>
-                <td> <p><p><p></td>
+                <td width="450px"> </td>
+                <td width="10px" align = "right"><a href = "#" class = "button2" > Главная </a> </td>
+                <td width="10px" align = "left"> <a href = "information.html" class = "button1" > Обратная связь </a>  </td>
             </tr>
+        </table>
+        <table class="itable" cellspacing='9' >
             <tr>
                 <td colspan="2" align = "center" ><span class="text"> Алгоритм Прима </span>
                     <br>Век живи - Век учись!© </br>
@@ -20,25 +24,31 @@
             </tr>
             <tr>
                 <td width="50%" align = "right"> <a href = "#" class = "button2"> Прима </a> </td>
-                <td width="50%" align = "left" id="contents"> <a href = "krack_teory.html" class = "button1" > Краксала </a> </td>
+                <td width="50%" align = "left" id="contents"> <a href = "krack_teory.html" class = "button1" > Краксала (не работает)</a> </td>
             </tr>
-            <tr colspan="2">
-                <table class="itable" cellspacing='3'>
+            <tr>
+                <table class="itable" cellspacing='3' background="#099">
                     <tr>
-                        <td width = "40px"></td>
-                        <td width="140px" align = "right"><a href = "prim_teory.html" class = "button1"> Обучение </a> </td>
-                        <td width="140px" align = "center"><a href = "#" class = "button2" > Тестирование </a> </td>
-                        <td width="140px" align = "left"> <a href = "prim_control.html" class = "button1" > Проверка </a>  </td>
+                        <td width = "auto"></td>
+                        <td width="10px" align = "right"><a href = "prim_teory.html" class = "button1"> Обучение </a> </td>
+                        <td width="10px" align = "center"><a href = "#" class = "button2" > Тестирование </a> </td>
+                        <td width="10px" align = "left"> <a href = "prim_control.html" class = "button1" > Проверка </a>  </td>
                         <td width = "auto"></td>
                     </tr>
-                    
-                    <tr> <td colspan='5' align = "center"> <canvas id ="quest" width="600" height="40">Canvas Не поддерживается!</canvas>  </td></tr>
+                </table>
+                <table class="itable" cellspacing='3'>
+
                     <tr>
-                        <td width = "40px"></td>
-                        <td  colspan="3" align = "center" border="2"> <canvas id ="can" width="420" height="300">Canvas Не поддерживается!</canvas> </td>
-                        <td  align = "center" border="2"> <canvas id ="tab" width="200" height="300">Canvas Не поддерживается!</canvas> </td>
-                        
+                        <td colspan='3' align = "center" width="20" > <canvas id ="quest" width="420" height="40">Canvas Не поддерживается!</canvas>  </td></tr>
+
+                    <tr>
+                        <td width = "200"></td>
+                        <td align = "left" border="2" width="350"> <canvas id ="can" width="320" height="250">Canvas Не поддерживается!</canvas> </td>
+                        <td  align = "left" border="2"> <canvas id ="tab" width="200" height="250">Canvas Не поддерживается!</canvas> </td>
+
                     </tr>
+                </table>
+                <table class="itable" cellspacing='3'>
                     <tr>
                         <td width = "auto"></td>
                         <td width="10px" align = "right"><a href = "#" value=" Дальше " onclick="next()" class = "button1"> Build </a> </td>
@@ -47,13 +57,13 @@
                     </tr>
                 </table>
             </tr>
-            
+
             <script src="http://jcscript.com/data/js/jCanvaScript.1.5.18.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"> </script>
-            <script src="JS/func_prorisovka_grafa.js"> </script>
+            <script src="JS/graf_painting.js"> </script>
             <script src="JS/graf.js"></script>
-            
-            
+
+
 
             </body>
 </html>

@@ -1,46 +1,73 @@
 <html>
     <head>
-        <title>Алгоритм Примa и Краскала</title>
-        <link rel="shortcut icon" href="favicon.png" type = "image/png">
+        <title>Алгоритм Примa и Краксала</title>
         <link rel="stylesheet" type ="text/css" href="style.css">
+        <link rel="shortcut icon" href="favicon.png" type = "image/png">
         <meta charset="utf-8">
     </head>
-    
+
     <body bgcolor = "EEEEEE" align = "center">
-        
+        <table class="itable" cellspacing='3' >
+            <tr>
+                <td width="450px"> </td>
+                <td width="10px" align = "right"><a href = "#" class = "button2" > Главная </a> </td>
+                <td width="10px" align = "left"> <a href = "information.html" class = "button1" > Обратная связь </a>  </td>
+            </tr>
+        </table>
 
         <table class="itable" cellspacing='9' >
             <tr>
-                <td> <p><p><p></td>
-            </tr>
-            <tr>
-                <td colspan="2" align = "center" ><span class="text"> Алгоритм Прима и Краскала </span>
-                    <br>Чтение файла с поясниниями алгоритмов</br>
+                <td colspan="2" align = "center" ><span class="text"> Алгоритм Прима </span>
+                    <br>Учение - свет, неучение - тьма© </br>
                     <p>
                     <br><span class="text"> Выберите алгоритм: </span></br>
                 </td>
             </tr>
-             <tr>
-                <td width="50%" align = "right"> <a href = "prim_teory.html" class = "button1" > Прима </a>  </td>
-                <td width="50%" align = "left"> <a href = "krack_teory.html" class = "button1" > Краксала </a> </td>
+            <tr>
+                <td width="50%" align = "right"> <a href = "#" class = "button2"> Прима </a> </td>
+                <td width="50%" align = "left"> <a href = "krack_teory.html" enalible = "false" class = "button1" > Краксала (не работает) </a> </td>
             </tr>
-            <tr colspan="2">
+            <tr>
                 <table class="itable" cellspacing='3'>
                     <tr>
-                            <td width = "auto"></td>
-                            <td width="10px" align = "right"><a href = "#" class = "button2" > Обучение </a> </td>
-                            <td width="10px" align = "center"><a href = "#" class = "button2" > Тестирование </a>
-                            <td width="10px" align = "left"> <a href = "#" class = "button2" > Проверка </a>  </td>
-                            <td width = "auto"></td>
+                        <td width = "auto"></td>
+                        <td width="10px" align = "right"><a href = "#" class = "button2"> Обучение </a> </td>
+                        <td width="10px" align = "center"><a href = "prim_test.html" class = "button1" > Тестирование </a> </td>
+                        <td width="10px" align = "left"> <a href = "prim_control.html" class = "button1" > Проверка </a>  </td>
+                        <td width = "auto"></td>
                     </tr>
-                    
-                    <tr colspan="5">
+                </table>
+                <table class="itable" cellspacing='15'>
+                    <tr>
+                        <td colspan="5">
+                            <span class = "text"> Задача алгоритма</span>
+                            <p ><strong>Алгоритм Прима</strong>  — алгоритм построения минимального <a href="https://ru.wikipedia.org/wiki/%D0%9E%D1%81%D1%82%D0%BE%D0%B2%D0%BD%D0%BE%D0%B5_%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE" class="text">остовного</a> дерева <a href="http://pco.iis.nsk.su/grapp2/html/ReqtypetNamevzve4enn72_graf.htm" class="text">взвешенного</a> <a href="https://ru.wikipedia.org/wiki/%D0%9E%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%B9_%D0%B3%D1%80%D0%B0%D1%84" class="text">неориентированого</a>, <a href = "https://ru.wikipedia.org/wiki/%D0%A1%D0%B2%D1%8F%D0%B7%D0%BD%D1%8B%D0%B9_%D0%B3%D1%80%D0%B0%D1%84" class="text">связного</a> графа. Алгоритм впервые был открыт в 1930 году чешским математиком Войцехом Ярником, позже переоткрыт Робертом Примом  в 1957 году, и, независимо от них, Э.&nbsp;Дейкстрой в 1959 году.</p>
+
+                            <span class = "text"> Алгоритм</span>
+                            <p>1. Выбираем минимальный вес среди помеченных столбцов (или, если таких еще нет, минимальный вес всей матрицы).</p>
+                                <p>2. Зануляем строки (присваиваем всем элементам данной строки 0), номера которых являлись координатами минимального элемениа из пункта 1.</p>
+                                <p>3. Помечаем столбцы, номера которых являлись координатами минимального элемениа из пункта 1.
+                                <p>Выполняем шаги 1-3 до тех пор, пока в матрице есть хотя бы 1 ненулевой элемент.
+                                <p>Результатом работы алгоритма является остовное дерево минимальной стоимости.</p>
+                            </p>
+                            <span class = "text"> Интерфейс</span>
+                            <p><img src="Photo/photo1.png" alt="Рисунок 1. Граф">
+                                <span class="text"> Граф. </span>
+                                Пользователю предоставляется <a href="https://ru.wikipedia.org/wiki/%D0%9E%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%B9_%D0%B3%D1%80%D0%B0%D1%84" class="text">неориентированый</a>, <a href = "https://ru.wikipedia.org/wiki/%D0%A1%D0%B2%D1%8F%D0%B7%D0%BD%D1%8B%D0%B9_%D0%B3%D1%80%D0%B0%D1%84" class="text">связный</a>, <a href="http://pco.iis.nsk.su/grapp2/html/ReqtypetNamevzve4enn72_graf.htm" class="text">взвешеный</a>  граф. Чтобы узнать вес данного ребра, необходимо навести на ребро указатель мыши. По середине ребра появится белый квадрат с числом. Это число и является весом данного ребра. После того, как указатель мыши выйдет за пределы ребра вес исчезнет! Тренируйте память и внимание. Чтобы выделить ребро нажмите на него левой клавигой мыши. Чтобы снять выделение просто повторно нажмите на ребро.</p>
+                            <p><img src="Photo/photo2.png" alt="Рисунок 2. Матрица смежности">
+                                <span class="text"> Матрица смежности. </span>
+                                Также, для вашего удобства, на экран выводится матрица смежности данного графа. Если строка нулевая, то веса отображаются красным цветом, если столбец выделен, то он отображаестя желтым цветом.</p>
+
+
+
+
+                        </td>
                     </tr>
-            
+
                 </table>
             </tr>
-            
-         
-         <script src="JS/window.js"> </script>
-    </body>
+            <tr><td><br><br><br></td></tr>
+
+            <script src="JS/window.js"> </script>
+            </body>
 </html>

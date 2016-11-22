@@ -1,16 +1,21 @@
 <html>
     <head>
-        <title>Алгоритм Примa и Краскала</title>
+        <title>Алгоритм Примa и Краксала</title>
         <link rel="stylesheet" type ="text/css" href="style.css">
         <link rel="shortcut icon" href="favicon.png" type = "image/png">
         <meta charset="utf-8">
     </head>
-    
+
     <body bgcolor = "EEEEEE" align = "center">
-        <table class="itable" cellspacing='9' >
+        <table class="itable" cellspacing='3' >
             <tr>
-                <td> <p><p><p></td>
+                <td width="450px"> </td>
+                <td width="10px" align = "right"><a href = "#" class = "button2" > Главная </a> </td>
+                <td width="10px" align = "left"> <a href = "information.html" class = "button1" > Обратная связь </a>  </td>
             </tr>
+        </table>
+
+        <table class="itable" cellspacing='9' >
             <tr>
                 <td colspan="2" align = "center" ><span class="text"> Алгоритм Прима </span>
                     <br>Тяжело в учении - легко в походе!© </br>
@@ -20,39 +25,46 @@
             </tr>
             <tr>
                 <td width="50%" align = "right"> <a href = "#" class = "button2"> Прима </a> </td>
-                <td width="50%" align = "left" id="contents"> <a href = "krack_teory.html" class = "button1" > Краксала </a> </td>
+                <td width="50%" align = "left" id="contents"> <a href = "krack_teory.html" class = "button1" > Краксала (не работает)</a> </td>
             </tr>
             <tr colspan="2">
                 <table class="itable" cellspacing='3'>
                     <tr>
-                        <td width = "40px"></td>
-                        <td width="140px" align = "right"><a href = "prim_teory.html" class = "button1"> Обучение </a> </td>
-                        <td width="140px" align = "center"><a href = "prim_test.html" class = "button1" > Тестирование </a> </td>
-                        <td width="140px" align = "left"> <a href = "#" class = "button2" > Проверка </a>  </td>
+                        <td width = "auto"></td>
+                        <td width="10px" align = "right" id="contents"><a href = "prim_teory.html" class = "button1"> Обучение </a> </td>
+                        <td width="10px" align = "center"><a id="contents" href = "prim_test.html" class = "button1" > Тестирование </a> </td>
+                        <td width="10px" align = "left"> <a href = "#" class = "button2" > Проверка </a>  </td>
                         <td width = "auto"></td>
                     </tr>
-                    
-                    <tr> <td colspan='5' align = "center"> <canvas id ="quest" width="600" height="40">Canvas Не поддерживается!</canvas>  </td></tr>
+                </table>
+                <table class="itable" cellspacing='3'>
+
+                    <tr> <td colspan='3' align = "center"> <canvas id ="quest" width="520" height="40">Canvas Не поддерживается!</canvas>  </td></tr>
+
                     <tr>
-                        <td width = "40px"></td>
-                        <td  colspan="3" align = "center" border="2"> <canvas id ="can" width="420" height="300">Canvas Не поддерживается!</canvas> </td>
-                        <td  align = "center" border="2"> <canvas id ="tab" width="200" height="300">Canvas Не поддерживается!</canvas> </td>
-                        
+                        <td width = "200"></td>
+                        <td align = "left" border="2" width="350"> <canvas id ="can" width="320" height="250">Canvas Не поддерживается!</canvas> </td>
+                        <td  align = "left" border="2"> <canvas id ="tab" width="200" height="250">Canvas Не поддерживается!</canvas> </td>
+
                     </tr>
+                </table>
+
+                <table class="itable" cellspacing='3'>
                     <tr>
                         <td width = "auto"></td>
                         <td width="10px" align = "right"><a href = "#" value=" Дальше " onclick="build()" class = "button1"> Build </a> </td>
-                        <td width="10px" align = "left"> <a  href = "prim_control.html" class = "button1" > Restart  </a>  </td>
+                        <td width="10px" align = "left" id="contents"> <a href = "prim_control.html" class = "button1" > Restart  </a>  </td>
                         <td width="10px" align = "left"> <a  href = "#" onclick="control()" class = "button1" > Control  </a>  </td>
                         <td width = "auto"></td>
                     </tr>
 
                 </table>
             </tr>
-            
+
                         <script src="http://jcscript.com/data/js/jCanvaScript.1.5.18.js"></script>
                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"> </script>
-                        <script src="JS/func_prorisovka_grafa.js"> </script>
+                        <script src="JS/graf_painting.js"> </script>
                         <script src="JS/control.js"></script>
+                        <script src="JS/window.js"> </script>
             </body>
 </html>
