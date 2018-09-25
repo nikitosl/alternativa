@@ -1,6 +1,8 @@
 var canvas = document.getElementById("test");
 if (canvas == null)
+
     console.log("Canvas not Opened");
+
 var ctx = canvas.getContext('2d');
 
 function createArray(q) {
